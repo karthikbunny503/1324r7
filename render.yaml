@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: pella-render-recorder
+    runtime: node
+    buildCommand: npm install && PLAYWRIGHT_BROWSERS_PATH=0 npx playwright install chromium
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: 20.19.5
+      - key: PORT
+        value: 10000
+      - key: PLAYWRIGHT_BROWSERS_PATH
+        value: 0
+      - key: URLS_FILE
+        value: ./urls.txt
+      - key: SETTINGS_FILE
+        value: ./recorder-settings.json
+      - key: RECORDINGS_DIR
+        value: ./recordings
+      - key: DEFAULT_QUALITY
+        value: 480p
+      - key: RECORD_SECONDS
+        value: 30
+      - key: PAGE_TIMEOUT_MS
+        value: 60000
+      - key: PAGE_WARMUP_MS
+        value: 3000
+      - key: AUTO_START
+        value: false
+      - key: DELETE_LOCAL_AFTER_UPLOAD
+        value: false

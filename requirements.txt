@@ -1,0 +1,2 @@
+This is a Node.js project. Install dependencies with npm install.
+Python requirements are not used by the recorder.
